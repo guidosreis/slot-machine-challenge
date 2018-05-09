@@ -32,16 +32,19 @@ class App extends Component {
 
   start() {
     this.setState({ isSpinning: true })
+    this.handleStartSideEffects();
+  }
 
+  stop() {
+    this.setState({ isSpinning: false })
+  }
+  
+  handleStartSideEffects() {
     setTimeout(() => {
       if (this.state.isSpinning) {
         this.stop()
       }
     }, 10000)
-  }
-
-  stop() {
-    this.setState({ isSpinning: false })
   }
 
   render() {
