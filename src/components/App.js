@@ -7,14 +7,16 @@ class App extends Component {
     super()
 
     this.state = {
-      running: false
+      isSpinning: false
     }
 
     this.handleStartClick = this.handleStartClick.bind(this);
     this.handleStopClick = this.handleStopClick.bind(this);
-
+  }
+  
+  componentDidMount() {
     setTimeout(() => {
-      if (!this.state.running) {
+      if (!this.state.isSpinning) {
         this.start()
       }
     }, 5000)
@@ -29,27 +31,23 @@ class App extends Component {
   }
 
   start() {
-    this.setState({
-      running: true
-    })
+    this.setState({ isSpinning: true })
 
     setTimeout(() => {
-      if (this.state.running) {
+      if (this.state.isSpinning) {
         this.stop()
       }
     }, 10000)
   }
 
   stop() {
-    this.setState({
-      running: false
-    })
+    this.setState({ isSpinning: false })
   }
 
   render() {
     return (
       <AppContainer
-        running={this.state.running}
+        isSpinning={this.state.isSpinning}
         handleStartClick={this.handleStartClick}
         handleStopClick={this.handleStopClick}
       />
