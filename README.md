@@ -1,5 +1,5 @@
-# React Webpack Starter
-> This is a boilerplate for React 16 & Webpack 4. It includes webpack-dev-server and a build script
+# Slot Machine Challenge
+> This is a challenge to build a slot machine with Html, CSS and Javascript (React)
 
 ## Quick Start
 
@@ -18,13 +18,4 @@ npm run build
 
 ### Author
 
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
-
-### Version
-
-1.0.0
-
-### License
-
-This project is licensed under the MIT License
+Guilherme dos Reis
