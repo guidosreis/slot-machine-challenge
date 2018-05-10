@@ -23,7 +23,8 @@ class App extends Component {
           figures: [],
           activeFigure: null
         }
-      ]
+      ],
+      prize: 0
     }
 
     this.handleStartClick = this.handleStartClick.bind(this)
@@ -56,10 +57,6 @@ class App extends Component {
   }
 
   handleStartClick() {
-    if (!this.state.initialized) {
-      this.setState({ initialized: true })
-    }
-
     this.start()
   }
 
@@ -69,6 +66,7 @@ class App extends Component {
 
   start() {
     this.setState({ isSpinning: true })
+    this.setState({ prize: 0 })
     this.spin()
     this.handleStartSideEffects()
   }
@@ -77,6 +75,7 @@ class App extends Component {
     clearTimeout(this.stopTimeout)
     clearInterval(this.spinInterval)
     this.setState({ isSpinning: false })
+    this.checkPrizes()
   }
 
   spin() {
@@ -95,6 +94,10 @@ class App extends Component {
   }
   
   handleStartSideEffects() {
+    if (!this.state.initialized) {
+      this.setState({ initialized: true })
+    }
+
     this.stopTimeout = setTimeout(() => {
       if (this.state.isSpinning) {
         this.stop()
@@ -109,10 +112,42 @@ class App extends Component {
     return figures[j]
   }
 
+  checkPrizes() {
+    const wheels = this.state.wheels
+    let prize
+    let consecutive = false
+    let allTheSame = true
+    
+    wheels.forEach((wheel, index) => {
+      const { activeFigure } = wheel
+
+      if (index > 0) {
+        const j = index - 1
+
+        if (activeFigure === wheels[j].activeFigure) {
+          consecutive = true
+        } else {
+          allTheSame = false
+        }
+      }
+
+      if (index === wheels.length - 1) {
+        if (allTheSame) { prize = 1000 }
+        else if (consecutive) { prize = 200 }
+        else if (activeFigure === wheels[0].activeFigure) { prize = 100 }
+        else { prize = 0 }
+      }
+    })
+
+    this.setState({ prize })
+  }
+
   render() {
     return (
       <AppContainer
+        initialized={this.state.initialized}
         isSpinning={this.state.isSpinning}
+        prize={this.state.prize}
         wheels={this.state.wheels}
         handleStartClick={this.handleStartClick}
         handleStopClick={this.handleStopClick}
