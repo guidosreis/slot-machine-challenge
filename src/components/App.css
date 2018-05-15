@@ -13,3 +13,10 @@
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+button,
+button:hover,
+button:active,
+button:focus {
+  outline: none;
+}
