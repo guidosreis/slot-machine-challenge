@@ -1,0 +1,14 @@
+.btn-start {
+  border-radius: 50%;
+  border: 0;
+  background-color: #61bd4f;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 40px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100px;
+}
