@@ -10,5 +10,14 @@
   padding: 25px 0;
   text-align: center;
   text-transform: uppercase;
+  height: 65px;
   width: 65px;
+  transition: all .3s;
+}
+
+.btn-stop:disabled {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, .8);
+  color: #74181c;
+  background-color: #a32127;
+  cursor: default;
 }
