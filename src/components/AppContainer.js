@@ -14,19 +14,19 @@ const AppContainer = ({
 }) => (
   <div>
     <Wheels wheels={wheels} />
-    {/*
-    { !!prize && 
-      <h2>You win U$ {prize},00!</h2> 
-    }
-    { !!initialized && !isSpinning && !prize && 
-      <h2>You lose!</h2> 
-    }
-    */}
     <Controls
       isSpinning={isSpinning}
       handleStartClick={handleStartClick}
       handleStopClick={handleStopClick}
     />
+    <div style={{textAlign: 'center'}}>
+      { !!prize && 
+        <h2>You win U$ {prize},00!</h2> 
+      }
+      { !!initialized && !isSpinning && !prize && 
+        <h2>You lose!</h2> 
+      }
+    </div>
   </div>
 )
 
