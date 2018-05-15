@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Wheels from './Wheels'
-import StartButton from './StartButton'
-import StopButton from './StopButton'
+import Controls from './Controls'
 
 const AppContainer = ({
   initialized,
@@ -15,18 +14,17 @@ const AppContainer = ({
 }) => (
   <div>
     <Wheels wheels={wheels} />
+    {/*
     { !!prize && 
       <h2>You win U$ {prize},00!</h2> 
     }
     { !!initialized && !isSpinning && !prize && 
       <h2>You lose!</h2> 
     }
-    <StartButton
+    */}
+    <Controls
       isSpinning={isSpinning}
       handleStartClick={handleStartClick}
-    />
-    <StopButton
-      isSpinning={isSpinning}
       handleStopClick={handleStopClick}
     />
   </div>
