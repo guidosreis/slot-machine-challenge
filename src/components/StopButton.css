@@ -1,0 +1,14 @@
+.btn-stop {
+  border-radius: 50%;
+  border: 0;
+  background-color: #e93039;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 25px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 65px;
+}
