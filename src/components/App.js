@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import * as _ from 'lodash'
 
+import './App.css'
 import AppContainer from './AppContainer'
 
 class App extends Component {
