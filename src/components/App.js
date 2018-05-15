@@ -35,7 +35,7 @@ class App extends Component {
 
   componentWillMount() {
     const wheels = this.state.wheels
-    const figures = ['strawberry', 'banana', 'orange']
+    const figures = ['strawberry', 'banana', 'orange', 'monkey']
     
     for (let i = 0; i < wheels.length; i++) {
       const wheel = wheels[i]
